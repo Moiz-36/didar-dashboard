@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pages to Didar Dashboard - 4K Edition</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+            background-color: #F9F5EE; /* Matching warm cream background */
+            color: #967D55; /* Base branding brown color */
+            height: 100vh;
+            width: 100vw;
+            padding: 5rem; /* Scaled up padding for 4K edges */
+            display: flex;
+            overflow: hidden;
+        }
+
+        /* Outer Double-Border Frame layout matching image_4c6981.png */
+        .outer-frame {
+            border: 8px solid #967D55; /* Thicker borders for 4K crispness */
+            padding: 8px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            position: relative;
+        }
+        .inner-frame {
+            border: 2px solid #967D55;
+            width: 100%;
+            height: 100%;
+            padding: 5rem; /* Expanded internal safety margins */
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Top Header Layout */
+        .header-container {
+            margin-bottom: 4rem;
+            max-width: 75%;
+        }
+        h1 {
+            font-size: 10rem; /* Blown up from 5.5rem to fill 4K canvas */
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+        .subtitle {
+            font-size: 2.8rem; /* Scaled up definition text */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        /* Top Row Numbers Counter Grid */
+        .metrics-divider {
+            border-top: 3px solid #E5DEC9;
+            border-bottom: 3px solid #E5DEC9;
+            display: flex;
+            padding: 2.5rem 0; /* Deepened padding blocks */
+            margin-bottom: 4rem;
+            max-width: 75%;
+        }
+        .metric-box {
+            flex: 1;
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 8.5rem; /* Giant 4K readable stat counters */
+            font-weight: bold;
+            line-height: 1;
+        }
+        .metric-label {
+            font-size: 2rem; /* Clear tracking titles */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* Main Workspace Layout */
+        .main-content {
+            display: flex;
+            flex: 1;
+            width: 100%;
+            height: calc(100% - 30rem);
+        }
+
+        /* Left Side: Dynamic Progress Bars Group */
+        .chart-container {
+            width: 75%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            padding-right: 6rem;
+        }
+        .chart-row {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 8%; 
+        }
+        .city-label {
+            width: 380px; /* Widened tracking boundary for 4K layouts */
+            font-size: 2.2rem; /* Highly readable row metadata */
+            text-transform: uppercase;
+            text-align: right;
+            padding-right: 3rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .bar-wrapper {
+            flex: 1;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .progress-bar {
+            background-color: #967D55;
+            height: 80%;
+            border-radius: 0 20px 20px 0; /* Smooth pixel rounding */
+            transition: width 1s ease-out; 
+            width: 0%; 
+        }
+
+        /* Right Side: Fixed Branding Area */
+        .branding-container {
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 2rem;
+        }
+        .brand-logo {
+            width: 320px; /* Expanded logo footprint for high-DPI screens */
+            height: auto;
+            margin-bottom: 3rem;
+        }
+        .brand-text {
+            font-size: 2.6rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="outer-frame">
+        <div class="inner-frame">
+
+            <!-- Title Area -->
+            <div class="header-container">
+                <h1>Pages to Didar</h1>
+                <div class="subtitle">Embark on a shared reading journey in preparation for didar</div>
+            </div>
+
+            <!-- Big Stat Numbers Box Row -->
+            <div class="metrics-divider">
+                <div class="metric-box">
+                    <div class="metric-value" id="pagesRead">0</div>
+                    <div class="metric-label">Pages Read</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-value" id="participants">0</div>
+                    <div class="metric-label">Participants</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-value" id="screenFreeTime">0h</div>
+                    <div class="metric-label">Participants</div>
+                </div>
+            </div>
+
+            <!-- Dynamic Bottom Space Group -->
+            <div class="main-content">
+                <div class="chart-container" id="chartTarget">
+                    <!-- Javascript structural injection point -->
+                </div>
+
+                <div class="branding-container">
+                    <img src="logo.png" alt="Europe Visit Logo" class="brand-logo" onerror="this.style.display='none'">
+                    <div class="brand-text">Europe Visit</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Points to your local file path generated by the python automation script
+        const DATA_URL = "data.json";
+
+        async function refreshDashboardData() {
+            try {
+                const response = await fetch(DATA_URL);
+                const data = await response.json();
+                
+                document.getElementById('pagesRead').innerText = data.pages_read;
+                document.getElementById('participants').innerText = data.participants;
+                document.getElementById('screenFreeTime').innerText = data.screen_free_time;
+
+                const chartTarget = document.getElementById('chartTarget');
+                chartTarget.innerHTML = ''; 
+
+                const maxVal = data.leaderboard.length > 0 ? Math.max(...data.leaderboard.map(o => o.value)) : 100;
+
+                data.leaderboard.forEach(item => {
+                    const row = document.createElement('div');
+                    row.className = 'chart-row';
+                    const calculatedWidth = maxVal > 0 ? (item.value / maxVal) * 90 : 0; 
+
+                    row.innerHTML = `
+                        <div class="city-label">${item.city}</div>
+                        <div class="bar-wrapper">
+                            <div class="progress-bar" style="width: ${calculatedWidth}%"></div>
+                        </div>
+                    `;
+                    chartTarget.appendChild(row);
+                });
+
+            } catch (err) {
+                console.error("Dashboard calculation engine exception runtime error:", err);
+            }
+        }
+
+        refreshDashboardData();
+        setInterval(refreshDashboardData, 60000); 
+    </script>
+</body>
+</html>
