@@ -3,151 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pages to Didar Dashboard - 4K Edition</title>
+    <title>Pages to Didar Dashboard - 4K Master Edition</title>
     <style>
+        /* 4K Global Reset Styles */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body {
             font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-            background-color: #F9F5EE; /* Matching warm cream background */
-            color: #967D55; /* Base branding brown color */
+            background-color: #F9F5EE;
+            color: #967D55;
             height: 100vh;
             width: 100vw;
-            padding: 5rem; /* Scaled up padding for 4K edges */
+            padding: 4.5rem;
             display: flex;
             overflow: hidden;
         }
 
-        /* Outer Double-Border Frame layout matching image_4c6981.png */
+        /* 4K High-DPI Double Framing Design */
         .outer-frame {
-            border: 8px solid #967D55; /* Thicker borders for 4K crispness */
+            border: 6px solid #967D55;
             padding: 8px;
             width: 100%;
             height: 100%;
             display: flex;
-            position: relative;
         }
         .inner-frame {
             border: 2px solid #967D55;
             width: 100%;
             height: 100%;
-            padding: 5rem; /* Expanded internal safety margins */
+            padding: 4.5rem 5rem;
             display: flex;
             flex-direction: column;
             position: relative;
         }
 
-        /* Top Header Layout */
-        .header-container {
-            margin-bottom: 4rem;
-            max-width: 75%;
+        /* Layout Structure Header Blocks */
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+            margin-bottom: 3rem;
         }
-        h1 {
-            font-size: 10rem; /* Blown up from 5.5rem to fill 4K canvas */
+        .title-area h1 {
+            font-size: 8.5rem;
             font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            line-height: 1;
-            margin-bottom: 1rem;
+            line-height: 0.95;
+            margin-bottom: 1.5rem;
         }
-        .subtitle {
-            font-size: 2.8rem; /* Scaled up definition text */
+        .title-area .subtitle {
+            font-size: 2.4rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 500;
+            color: #A48D6B;
         }
 
-        /* Top Row Numbers Counter Grid */
-        .metrics-divider {
+        /* Repositioned & Enlarged Top Right Brand Area */
+        .brand-area {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            padding-top: 1rem;
+        }
+        .brand-logo {
+            width: 420px; /* Scaled up footprint */
+            height: auto;
+        }
+
+        /* Stat Counter Grid */
+        .metrics-bar {
             border-top: 3px solid #E5DEC9;
             border-bottom: 3px solid #E5DEC9;
             display: flex;
-            padding: 2.5rem 0; /* Deepened padding blocks */
-            margin-bottom: 4rem;
-            max-width: 75%;
+            padding: 2rem 0;
+            margin-bottom: 3.5rem;
+            width: 100%;
         }
         .metric-box {
             flex: 1;
             text-align: center;
         }
         .metric-value {
-            font-size: 8.5rem; /* Giant 4K readable stat counters */
+            font-size: 8.5rem;
             font-weight: bold;
             line-height: 1;
         }
         .metric-label {
-            font-size: 2rem; /* Clear tracking titles */
+            font-size: 2rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-top: 0.5rem;
             font-weight: 600;
         }
 
-        /* Main Workspace Layout */
-        .main-content {
+        /* Workspace Splits */
+        .main-workspace {
             display: flex;
             flex: 1;
             width: 100%;
-            height: calc(100% - 30rem);
+            height: calc(100% - 28rem);
+            gap: 6rem;
         }
 
-        /* Left Side: Dynamic Progress Bars Group */
+        /* Content Lists & Section Headings */
+        .column-left { width: 55%; height: 100%; display: flex; flex-direction: column; }
+        .column-right { width: 45%; height: 100%; display: flex; flex-direction: column; }
+        
+        .section-heading {
+            font-size: 2.6rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            margin-bottom: 2.5rem;
+            border-bottom: 2px solid #E5DEC9;
+            padding-bottom: 0.8rem;
+        }
+
+        /* Flex-Grid Chart Row Mechanics */
         .chart-container {
-            width: 75%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 100%;
-            padding-right: 6rem;
+            flex: 1;
         }
         .chart-row {
             display: flex;
             align-items: center;
             width: 100%;
-            height: 8%; 
+            height: 7.5%; 
         }
-        .city-label {
-            width: 380px; /* Widened tracking boundary for 4K layouts */
-            font-size: 2.2rem; /* Highly readable row metadata */
+
+        /* Left Side Custom Label Constraints (Fixed hiding text bug) */
+        .label-city {
+            width: 550px; /* Generous explicit spacing allocation */
+            font-size: 2.2rem;
             text-transform: uppercase;
-            text-align: right;
-            padding-right: 3rem;
-            font-weight: 600;
+            text-align: left;
+            padding-right: 2.5rem;
+            font-weight: bold;
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-        .bar-wrapper {
+        
+        /* Right Side Custom Age Label Constraints */
+        .label-age {
+            width: 180px;
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        /* Bar Rendering Containers */
+        .bar-track {
             flex: 1;
             height: 100%;
             display: flex;
             align-items: center;
+            padding-right: 2.5rem;
         }
         .progress-bar {
             background-color: #967D55;
-            height: 80%;
-            border-radius: 0 20px 20px 0; /* Smooth pixel rounding */
-            transition: width 1s ease-out; 
+            height: 75%;
+            border-radius: 0 20px 20px 0;
+            transition: width 1.2s cubic-bezier(0.1, 1, 0.1, 1);
             width: 0%; 
         }
 
-        /* Right Side: Fixed Branding Area */
-        .branding-container {
-            width: 25%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding-top: 2rem;
-        }
-        .brand-logo {
-            width: 320px; /* Expanded logo footprint for high-DPI screens */
-            height: auto;
-            margin-bottom: 3rem;
-        }
-        .brand-text {
-            font-size: 2.6rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            text-align: center;
+        /* Live Metrics End Values Placement */
+        .value-counter {
+            font-size: 2.4rem;
+            font-weight: bold;
+            min-width: 100px;
+            text-align: right;
         }
     </style>
 </head>
@@ -156,82 +187,113 @@
     <div class="outer-frame">
         <div class="inner-frame">
 
-            <!-- Title Area -->
-            <div class="header-container">
-                <h1>Pages to Didar</h1>
-                <div class="subtitle">Embark on a shared reading journey in preparation for didar</div>
+            <div class="header-section">
+                <div class="title-area">
+                    <h1>Pages to Didar</h1>
+                    <div class="subtitle">Embark on a shared reading journey in preparation for didar</div>
+                </div>
+                <div class="brand-area">
+                    <img src="logo.png" alt="Branding Logo" class="brand-logo" onerror="this.style.display='none'">
+                </div>
             </div>
 
-            <!-- Big Stat Numbers Box Row -->
-            <div class="metrics-divider">
+            <div class="metrics-bar">
                 <div class="metric-box">
-                    <div class="metric-value" id="pagesRead">0</div>
+                    <div class="metric-value" id="totalPages">0</div>
                     <div class="metric-label">Pages Read</div>
                 </div>
                 <div class="metric-box">
-                    <div class="metric-value" id="participants">0</div>
+                    <div class="metric-value" id="totalParticipants">0</div>
                     <div class="metric-label">Participants</div>
                 </div>
                 <div class="metric-box">
-                    <div class="metric-value" id="screenFreeTime">0h</div>
-                    <div class="metric-label">Participants</div>
+                    <div class="metric-value" id="totalScreenFree">0h</div>
+                    <div class="metric-label">Screen-Free Time</div>
                 </div>
             </div>
 
-            <!-- Dynamic Bottom Space Group -->
-            <div class="main-content">
-                <div class="chart-container" id="chartTarget">
-                    <!-- Javascript structural injection point -->
+            <div class="main-workspace">
+                
+                <div class="column-left">
+                    <h2 class="section-heading">Centre Participation</h2>
+                    <div class="chart-container" id="leaderboardTarget"></div>
                 </div>
 
-                <div class="branding-container">
-                    <img src="logo.png" alt="Europe Visit Logo" class="brand-logo" onerror="this.style.display='none'">
-                    <div class="brand-text">Europe Visit</div>
+                <div class="column-right">
+                    <h2 class="section-heading">Readers by Age</h2>
+                    <div class="chart-container" id="ageTarget"></div>
                 </div>
+
             </div>
 
         </div>
     </div>
 
     <script>
-        // Points to your local file path generated by the python automation script
         const DATA_URL = "data.json";
 
-        async function refreshDashboardData() {
+        async function updateSignageUI() {
             try {
-                const response = await fetch(DATA_URL);
-                const data = await response.json();
+                const res = await fetch(DATA_URL);
+                const dataset = await res.json();
                 
-                document.getElementById('pagesRead').innerText = data.pages_read;
-                document.getElementById('participants').innerText = data.participants;
-                document.getElementById('screenFreeTime').innerText = data.screen_free_time;
+                // Set Header Values
+                document.getElementById('totalPages').innerText = dataset.pages_read;
+                document.getElementById('totalParticipants').innerText = dataset.participants;
+                document.getElementById('totalScreenFree').innerText = dataset.screen_free_time;
 
-                const chartTarget = document.getElementById('chartTarget');
-                chartTarget.innerHTML = ''; 
-
-                const maxVal = data.leaderboard.length > 0 ? Math.max(...data.leaderboard.map(o => o.value)) : 100;
-
-                data.leaderboard.forEach(item => {
+                // 1. Draw Center Participation Chart List
+                const lbTarget = document.getElementById('leaderboardTarget');
+                lbTarget.innerHTML = '';
+                
+                const maxCityVal = dataset.leaderboard.length > 0 ? Math.max(...dataset.leaderboard.map(c => c.value)) : 100;
+                
+                dataset.leaderboard.slice(0, 10).forEach(item => {
                     const row = document.createElement('div');
                     row.className = 'chart-row';
-                    const calculatedWidth = maxVal > 0 ? (item.value / maxVal) * 90 : 0; 
-
+                    const pct = maxCityVal > 0 ? (item.value / maxCityVal) * 100 : 0;
+                    
                     row.innerHTML = `
-                        <div class="city-label">${item.city}</div>
-                        <div class="bar-wrapper">
-                            <div class="progress-bar" style="width: ${calculatedWidth}%"></div>
+                        <div class="label-city">${item.city}</div>
+                        <div class="bar-track">
+                            <div class="progress-bar" style="width: ${pct}%"></div>
                         </div>
+                        <div class="value-counter">${item.value}h</div>
                     `;
-                    chartTarget.appendChild(row);
+                    lbTarget.appendChild(row);
                 });
 
-            } catch (err) {
-                console.error("Dashboard calculation engine exception runtime error:", err);
+                // 2. Draw Readers by Age Chart List
+                const ageTarget = document.getElementById('ageTarget');
+                ageTarget.innerHTML = '';
+                
+                const maxAgeVal = dataset.age_groups && dataset.age_groups.length > 0 ? Math.max(...dataset.age_groups.map(a => a.count)) : 100;
+                
+                if (dataset.age_groups) {
+                    dataset.age_groups.forEach(item => {
+                        const row = document.createElement('div');
+                        row.className = 'chart-row';
+                        const pct = maxAgeVal > 0 ? (item.count / maxAgeVal) * 100 : 0;
+                        
+                        row.innerHTML = `
+                            <div class="label-age">${item.band}</div>
+                            <div class="bar-track">
+                                <div class="progress-bar" style="width: ${pct}%"></div>
+                            </div>
+                            <div class="value-counter">${item.count}</div>
+                        `;
+                        ageTarget.appendChild(row);
+                    });
+                }
+
+            } catch (error) {
+                console.error("Layout calculations pipeline error event exception:", error);
             }
         }
 
-        refreshDashboardData();
-        setInterval(refreshDashboardData, 60000); 
+        // Initialize and setup background refresh loop interval
+        updateSignageUI();
+        setInterval(updateSignageUI, 60000);
     </script>
 </body>
 </html>
