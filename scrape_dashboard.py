@@ -19,38 +19,37 @@ def scrape_dashboard():
         print("Waiting for data layers to load...")
         page.wait_for_timeout(5000) 
         
-        # Extract main text header blocks using specific structural indices
+        # Build core data dictionary with correct Python indentation
         print("Extracting main total metrics...")
-        pages_read = page.locator(".rd-stat:nth-child(1) .rd-stat__num").text_content().strip()
-        participants = page.locator(".rd-stat:nth-child(2) .rd-stat__num").text_content().strip()
-        screen_free = page.locator(".rd-stat:nth-child(3) .rd-stat__num").text_content().strip()
-        
-        # Build core data dictionary
         data = {
-            "pages_read": pages_read,
-            "participants": participants,
-            "screen_free_time": screen_free,
-            "leaderboard": []
+            "pages_read": page.locator(".rd-stat:nth-child(1) .rd-stat__num").text_content().strip(),
+            "participants": page.locator(".rd-stat:nth-child(2) .rd-stat__num").text_content().strip(),
+            "screen_free_time": page.locator(".rd-stat:nth-child(3) .rd-stat__num").text_content().strip(),
+            "leaderboard": [],
+            "age_groups": [] 
         }
         
-        # Extract individual rows for the dynamic bar chart layout
-        print("Extracting leaderboards/center participation details...")
+        # 1. Extract individual rows for Center Participation
+        print("Extracting leaderboard/center participation details...")
         rows = page.locator(".rd-board__row").all()
-        
         for row in rows:
             city_name = row.locator(".rd-board__label").text_content().strip()
             value_raw = row.locator(".rd-board__value").text_content().strip()
-            
-            # Sanitize numeric types safely (e.g., convert "47h" -> 47)
             clean_value = int(value_raw.replace('h', '').replace(',', '').strip())
-            
-            data["leaderboard"].append({
-                "city": city_name.upper(),  # Forces clean uppercase layout
-                "value": clean_value
+            data["leaderboard"].append({"city": city_name.upper(), "value": clean_value})
+
+        # 2. Extract rows for Readers by Age Automatically
+        print("Extracting age distribution categories...")
+        age_rows = page.locator(".rd-age__row").all()
+        for a_row in age_rows:
+            band = a_row.locator(".rd-age__band").text_content().strip()
+            count_raw = a_row.locator(".rd-age__count").text_content().strip()
+            data["age_groups"].append({
+                "band": band,
+                "count": int(count_raw.replace(',', '').strip())
             })
             
         # Target path output settings
-        # Change this string path if you want to output to a specific desktop folder
         output_file = "data.json"
         
         with open(output_file, "w", encoding="utf-8") as f:
@@ -60,4 +59,14 @@ def scrape_dashboard():
         browser.close()
 
 if __name__ == "__main__":
-    scrape_dashboard()
+    # If running locally on your PC 24/7, this loop keeps it running every 5 minutes.
+    # If running on GitHub Actions via the scrape.yml timer, you can leave this loop in,
+    # or let GitHub handle the scheduling on its own cloud servers!
+    while True:
+        try:
+            scrape_dashboard()
+        except Exception as e:
+            print(f"Error encountered during scrape: {e}")
+            
+        print("Sleeping for 5 minutes before next live update...")
+        time.sleep(300) # 300 seconds = 5 minutes
