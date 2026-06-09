@@ -1,294 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pages to Didar - 4K Maximum Text Edition</title>
-    <style>
-        /* 4K Reset and Canvas Setup */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body {
-            font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-            background-color: #F9F5EE;
-            color: #967D55;
-            height: 100vh;
-            width: 100vw;
-            padding: 4.5rem;
-            display: flex;
-            overflow: hidden;
-        }
+name: Scheduled Web Scraper
 
-        /* Double-Frame Board Design matching screenshot */
-        .outer-frame {
-            border: 8px solid #967D55; /* Slightly thicker outer frame */
-            padding: 10px;
-            width: 100%;
-            height: 100%;
-            display: flex;
-        }
-        .inner-frame {
-            border: 3px solid #967D55;
-            width: 100%;
-            height: 100%;
-            padding: 4rem 5rem;
-            display: flex;
-            flex-direction: column;
-        }
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
 
-        /* Top Header Alignment */
-        .header-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            width: 100%;
-            margin-bottom: 3rem;
-        }
-        .title-area h1 {
-            font-size: 11rem; /* Increased from 8.5rem */
-            font-weight: bold;
-            text-transform: uppercase;
-            line-height: 0.95;
-            margin-bottom: 1.5rem;
-        }
-        .title-area .subtitle {
-            font-size: 3.2rem; /* Increased from 2.4rem */
-            letter-spacing: 0.5px;
-            font-weight: 500;
-            color: #967D55;
-        }
-        .brand-area {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .brand-logo {
-            width: 240px; /* Scaled up logo image sizing to balance text */
-            height: auto;
-        }
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
-        /* Big Numbers Statistics Bar */
-        .metrics-bar {
-            border-top: 4px solid #967D55;
-            border-bottom: 4px solid #967D55;
-            display: flex;
-            padding: 2.5rem 0; /* Expanded padding */
-            margin-bottom: 4rem;
-            width: 100%;
-        }
-        .metric-box {
-            flex: 1;
-            text-align: center;
-        }
-        .metric-value {
-            font-size: 11rem; /* Increased from 8.5rem */
-            font-weight: bold;
-            line-height: 1;
-        }
-        .metric-label {
-            font-size: 2.6rem; /* Increased from 1.8rem */
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 1rem;
-            font-weight: bold;
-        }
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+      
+    steps:
+    - name: Checkout repository code
+      uses: actions/checkout@v4
 
-        /* Dual Column Layout Split */
-        .main-workspace {
-            display: flex;
-            flex: 1;
-            width: 100%;
-            height: calc(100% - 32rem);
-            gap: 6rem;
-        }
-        .column-left { width: 50%; height: 100%; display: flex; flex-direction: column; }
-        .column-right { width: 50%; height: 100%; display: flex; flex-direction: column; }
-        
-        /* Column Section Header Blocks */
-        .section-heading {
-            font-size: 3.2rem; /* Increased from 2.2rem */
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: bold;
-            margin-bottom: 2.5rem;
-            border-bottom: 4px solid #967D55;
-            padding-bottom: 1rem;
-        }
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
 
-        /* Chart Row Mechanics */
-        .chart-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            flex: 1;
-        }
-        .chart-row {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            height: 8%;
-        }
+    - name: Install dependencies
+      run: |
+        pip install playwright
+        playwright install chromium
 
-        /* Layout Label Sizing - widened to prevent overlaps with massive fonts */
-        .label-city {
-            width: 340px; /* Widened slightly to host bigger text */
-            font-size: 2.8rem; /* Increased from 2rem */
-            text-align: left;
-            padding-right: 1.5rem;
-            font-weight: bold;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .label-age {
-            width: 150px; /* Widened slightly */
-            font-size: 2.8rem; /* Increased from 2rem */
-            font-weight: bold;
-            text-align: left;
-        }
+    - name: Run Web Scraper Engine
+      run: python scrape_dashboard.py
 
-        /* Bar Tracks */
-        .bar-track {
-            flex: 1;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            padding-right: 2rem;
-        }
-        .progress-bar {
-            background-color: #967D55;
-            height: 75%; /* Thicker bar fills for better visibility */
-            border-radius: 0 6px 6px 0;
-            transition: width 1.2s cubic-bezier(0.1, 1, 0.1, 1);
-            width: 0%;
-        }
+    - name: Save Data File Changes to Repo
+      run: |
+        git config --global user.name "GitHub Action Bot"
+        git config --global user.email "actions@github.com"
+        git add data.json
+        git commit -m "Automated data sync update" || exit 0
+        git push
 
-        /* Numeric Value Ends placement formatting */
-        .value-counter {
-            font-size: 2.8rem; /* Increased from 2rem */
-            font-weight: bold;
-            min-width: 110px; /* Expanded spacing bucket */
-            text-align: right;
-        }
-    </style>
-</head>
-<body>
+    - name: Setup GitHub Pages Environment Modules
+      uses: actions/configure-pages@v5
 
-    <div class="outer-frame">
-        <div class="inner-frame">
+    - name: Upload Finished Web Artifacts
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: '.'
 
-            <div class="header-section">
-                <div class="title-area">
-                    <h1>Pages to Didar</h1>
-                    <div class="subtitle">Embark on a shared reading journey in preparation for Didar</div>
-                </div>
-                <div class="brand-area">
-                    <img src="logo.png" alt="Europe Visit" class="brand-logo" onerror="this.style.display='none'">
-                </div>
-            </div>
-
-            <div class="metrics-bar">
-                <div class="metric-box">
-                    <div class="metric-value" id="totalPages">0</div>
-                    <div class="metric-label">Pages Read</div>
-                </div>
-                <div class="metric-box">
-                    <div class="metric-value" id="totalParticipants">0</div>
-                    <div class="metric-label">Participants</div>
-                </div>
-                <div class="metric-box">
-                    <div class="metric-value" id="totalScreenFree">0h</div>
-                    <div class="metric-label">Screen Free Time</div>
-                </div>
-            </div>
-
-            <div class="main-workspace">
-                
-                <div class="column-left">
-                    <h2 class="section-heading">Participants</h2>
-                    <div class="chart-container" id="leaderboardTarget"></div>
-                </div>
-
-                <div class="column-right">
-                    <h2 class="section-heading">Reader by Age</h2>
-                    <div class="chart-container" id="ageTarget"></div>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-
-    <script>
-        async function updateSignageUI() {
-            try {
-                // Incorporate dynamic cache-busting logic to prevent frozen screens
-                const uniqueTimestamp = new Date().getTime();
-                const cacheBustingUrl = `data.json?t=${uniqueTimestamp}`;
-                
-                const res = await fetch(cacheBustingUrl);
-                const dataset = await res.json();
-                
-                // Set Header Metric Strings safely
-                document.getElementById('totalPages').innerText = dataset.pages_read;
-                document.getElementById('totalParticipants').innerText = dataset.participants;
-                document.getElementById('totalScreenFree').innerText = dataset.screen_free_time;
-
-                // 1. Process Center Board Structure Layout List loop
-                const lbTarget = document.getElementById('leaderboardTarget');
-                lbTarget.innerHTML = '';
-                
-                const maxCityVal = dataset.leaderboard.length > 0 ? Math.max(...dataset.leaderboard.map(c => c.value)) : 100;
-                
-                dataset.leaderboard.slice(0, 10).forEach(item => {
-                    const row = document.createElement('div');
-                    row.className = 'chart-row';
-                    const pct = maxCityVal > 0 ? (item.value / maxCityVal) * 100 : 0;
-                    
-                    // Format city display to use cleaner capitalized structure (e.g., Frankfurt · DE)
-                    let cleanCityDisplay = item.city.replace('GERMANY', 'DE').replace('UNITED KINGDOM', 'UK').replace('NETHERLANDS', 'NL').replace('DENMARK', 'DK').replace('SWEDEN', 'SE').replace('POLAND', 'PL');
-                    
-                    row.innerHTML = `
-                        <div class="label-city">${cleanCityDisplay}</div>
-                        <div class="bar-track">
-                            <div class="progress-bar" style="width: ${pct}%"></div>
-                        </div>
-                        <div class="value-counter">${item.value}h</div>
-                    `;
-                    lbTarget.appendChild(row);
-                });
-
-                // 2. Process Age Distribution Dataset Layout List loop
-                const ageTarget = document.getElementById('ageTarget');
-                ageTarget.innerHTML = '';
-                
-                const maxAgeVal = dataset.age_groups && dataset.age_groups.length > 0 ? Math.max(...dataset.age_groups.map(a => a.count)) : 100;
-                
-                if (dataset.age_groups) {
-                    dataset.age_groups.forEach(item => {
-                        const row = document.createElement('div');
-                        row.className = 'chart-row';
-                        const pct = maxAgeVal > 0 ? (item.count / maxAgeVal) * 100 : 0;
-                        
-                        row.innerHTML = `
-                            <div class="label-age">${item.band}</div>
-                            <div class="bar-track">
-                                <div class="progress-bar" style="width: ${pct}%"></div>
-                            </div>
-                            <div class="value-counter">${item.count}</div>
-                        `;
-                        ageTarget.appendChild(row);
-                    });
-                }
-
-            } catch (error) {
-                console.error("UI Calculation processing layout engine exception standard event catch:", error);
-            }
-        }
-
-        // Initialize display triggers
-        updateSignageUI();
-        setInterval(updateSignageUI, 60000); // Re-evaluate local values smoothly every 60 seconds
-    </script>
-</body>
-</html>
+    - name: Deploy Live Dashboard Web Link
+      id: deployment
+      uses: actions/deploy-pages@v4
