@@ -22,13 +22,14 @@ def scrape_dashboard():
         print("Waiting for dashboard visual components to render...")
         page.wait_for_timeout(7000) 
         
-        # Construct base target object
+        # FIXED: Corrected indentation for the data dictionary block
+        print("Extracting main total metrics...")
         data = {
             "pages_read": page.locator(".rd-stat:nth-child(1) .rd-stat__num").text_content().strip(),
             "participants": page.locator(".rd-stat:nth-child(2) .rd-stat__num").text_content().strip(),
             "screen_free_time": page.locator(".rd-stat:nth-child(3) .rd-stat__num").text_content().strip(),
             "leaderboard": [],
-            "age_groups": []  # This is the crucial missing block!
+            "age_groups": []  
         }
         
         # 1. Gather Center Participation Data rows
