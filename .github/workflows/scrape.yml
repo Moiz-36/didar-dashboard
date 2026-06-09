@@ -2,17 +2,23 @@ name: Scheduled Web Scraper
 
 on:
   schedule:
-    - cron: '*/5 * * * *' # Runs every 5 minutes in the cloud 24/7
-  workflow_dispatch: # Allows you to force run it manually
+    - cron: '*/5 * * * *' # Auto-triggers every 5 minutes
+  workflow_dispatch: # Allows manual force updates
+
+# Grant the background system explicit permissions to write files and deploy live pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repo
+    - name: Checkout repository code
       uses: actions/checkout@v4
 
-    - name: Setup Python
+    - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.10'
@@ -22,13 +28,24 @@ jobs:
         pip install playwright
         playwright install chromium
 
-    - name: Run Scraper
+    - name: Run Web Scraper Engine
       run: python scrape_dashboard.py
 
-    - name: Save new data
+    - name: Save Data File Changes to Repo
       run: |
-        git config --global user.name "GitHub Action"
+        git config --global user.name "GitHub Action Bot"
         git config --global user.email "actions@github.com"
         git add data.json
-        git commit -m "Automated data update" || exit 0
+        git commit -m "Automated data sync update" || exit 0
         git push
+
+    - name: Setup GitHub Pages Environment Modules
+      uses: actions/configure-pages@v5
+
+    - name: Upload Finished Web Artifacts
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: '.' # Package the entire folder workspace directly
+
+    - name: Deploy Live Dashboard Web Link
+      uses: actions/deploy-pages@v4
