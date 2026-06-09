@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pages to Didar Dashboard - 4K Master Edition</title>
+    <title>Pages to Didar - 4K Reference Matching Edition</title>
     <style>
-        /* 4K Global Reset Styles */
+        /* 4K Reset and Canvas Setup */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body {
@@ -19,7 +19,7 @@
             overflow: hidden;
         }
 
-        /* 4K High-DPI Double Framing Design */
+        /* Double-Frame Board Design matching screenshot */
         .outer-frame {
             border: 6px solid #967D55;
             padding: 8px;
@@ -31,54 +31,49 @@
             border: 2px solid #967D55;
             width: 100%;
             height: 100%;
-            padding: 4.5rem 5rem;
+            padding: 4rem 5rem;
             display: flex;
             flex-direction: column;
-            position: relative;
         }
 
-        /* Layout Structure Header Blocks */
+        /* Top Header Alignment */
         .header-section {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             width: 100%;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
         .title-area h1 {
             font-size: 8.5rem;
             font-weight: bold;
             text-transform: uppercase;
             line-height: 0.95;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
         .title-area .subtitle {
             font-size: 2.4rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             font-weight: 500;
-            color: #A48D6B;
+            color: #967D55;
         }
-
-        /* Repositioned & Enlarged Top Right Brand Area */
         .brand-area {
             display: flex;
             flex-direction: column;
-            align-items: flex-end;
-            padding-top: 1rem;
+            align-items: center;
         }
         .brand-logo {
-            width: 420px; /* Scaled up footprint */
+            width: 180px;
             height: auto;
         }
 
-        /* Stat Counter Grid */
+        /* Big Numbers Statistics Bar */
         .metrics-bar {
-            border-top: 3px solid #E5DEC9;
-            border-bottom: 3px solid #E5DEC9;
+            border-top: 3px solid #967D55;
+            border-bottom: 3px solid #967D55;
             display: flex;
-            padding: 2rem 0;
-            margin-bottom: 3.5rem;
+            padding: 1.5rem 0;
+            margin-bottom: 3rem;
             width: 100%;
         }
         .metric-box {
@@ -91,37 +86,36 @@
             line-height: 1;
         }
         .metric-label {
-            font-size: 2rem;
+            font-size: 1.8rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-top: 0.5rem;
-            font-weight: 600;
+            font-weight: bold;
         }
 
-        /* Workspace Splits */
+        /* Dual Column Layout Split */
         .main-workspace {
             display: flex;
             flex: 1;
             width: 100%;
             height: calc(100% - 28rem);
-            gap: 6rem;
+            gap: 5rem;
         }
-
-        /* Content Lists & Section Headings */
-        .column-left { width: 55%; height: 100%; display: flex; flex-direction: column; }
-        .column-right { width: 45%; height: 100%; display: flex; flex-direction: column; }
+        .column-left { width: 50%; height: 100%; display: flex; flex-direction: column; }
+        .column-right { width: 50%; height: 100%; display: flex; flex-direction: column; }
         
+        /* Column Section Header Blocks */
         .section-heading {
-            font-size: 2.6rem;
+            font-size: 2.2rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             font-weight: bold;
-            margin-bottom: 2.5rem;
-            border-bottom: 2px solid #E5DEC9;
-            padding-bottom: 0.8rem;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid #967D55;
+            padding-bottom: 0.5rem;
         }
 
-        /* Flex-Grid Chart Row Mechanics */
+        /* Chart Row Mechanics */
         .chart-container {
             display: flex;
             flex-direction: column;
@@ -132,52 +126,48 @@
             display: flex;
             align-items: center;
             width: 100%;
-            height: 7.5%; 
+            height: 8%;
         }
 
-        /* Left Side Custom Label Constraints (Fixed hiding text bug) */
+        /* Layout Label Sizing to match reference look cleanly */
         .label-city {
-            width: 550px; /* Generous explicit spacing allocation */
-            font-size: 2.2rem;
-            text-transform: uppercase;
+            width: 280px;
+            font-size: 2rem;
             text-align: left;
-            padding-right: 2.5rem;
-            font-weight: bold;
+            padding-right: 1.5rem;
+            font-weight: 500;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        
-        /* Right Side Custom Age Label Constraints */
         .label-age {
-            width: 180px;
-            font-size: 2.2rem;
-            text-transform: uppercase;
-            font-weight: bold;
+            width: 120px;
+            font-size: 2rem;
+            font-weight: 500;
             text-align: left;
         }
 
-        /* Bar Rendering Containers */
+        /* Bar Tracks */
         .bar-track {
             flex: 1;
             height: 100%;
             display: flex;
             align-items: center;
-            padding-right: 2.5rem;
+            padding-right: 2rem;
         }
         .progress-bar {
             background-color: #967D55;
-            height: 75%;
-            border-radius: 0 20px 20px 0;
+            height: 65%;
+            border-radius: 0 4px 4px 0; /* Tight crisp framing alignment */
             transition: width 1.2s cubic-bezier(0.1, 1, 0.1, 1);
-            width: 0%; 
+            width: 0%;
         }
 
-        /* Live Metrics End Values Placement */
+        /* Numeric Value Ends placement formatting */
         .value-counter {
-            font-size: 5rem;
+            font-size: 2rem;
             font-weight: bold;
-            min-width: 100px;
+            min-width: 80px;
             text-align: right;
         }
     </style>
@@ -190,10 +180,10 @@
             <div class="header-section">
                 <div class="title-area">
                     <h1>Pages to Didar</h1>
-                    <div class="subtitle">Embark on a shared reading journey in preparation for didar</div>
+                    <div class="subtitle">Embark on a shared reading journey in preparation for Didar</div>
                 </div>
                 <div class="brand-area">
-                    <img src="logo.png" alt="Branding Logo" class="brand-logo" onerror="this.style.display='none'">
+                    <img src="logo.png" alt="Europe Visit" class="brand-logo" onerror="this.style.display='none'">
                 </div>
             </div>
 
@@ -208,19 +198,19 @@
                 </div>
                 <div class="metric-box">
                     <div class="metric-value" id="totalScreenFree">0h</div>
-                    <div class="metric-label">Screen-Free Time</div>
+                    <div class="metric-label">Screen Free Time</div>
                 </div>
             </div>
 
             <div class="main-workspace">
                 
                 <div class="column-left">
-                    <h2 class="section-heading">Centre Participation</h2>
+                    <h2 class="section-heading">Participants</h2>
                     <div class="chart-container" id="leaderboardTarget"></div>
                 </div>
 
                 <div class="column-right">
-                    <h2 class="section-heading">Readers by Age</h2>
+                    <h2 class="section-heading">Reader by Age</h2>
                     <div class="chart-container" id="ageTarget"></div>
                 </div>
 
@@ -230,19 +220,21 @@
     </div>
 
     <script>
-        const DATA_URL = "data.json";
-
         async function updateSignageUI() {
             try {
-                const res = await fetch(DATA_URL);
+                // Incorporate dynamic cache-busting logic to prevent frozen screens
+                const uniqueTimestamp = new Date().getTime();
+                const cacheBustingUrl = `data.json?t=${uniqueTimestamp}`;
+                
+                const res = await fetch(cacheBustingUrl);
                 const dataset = await res.json();
                 
-                // Set Header Values
+                // Set Header Metric Strings safely
                 document.getElementById('totalPages').innerText = dataset.pages_read;
                 document.getElementById('totalParticipants').innerText = dataset.participants;
                 document.getElementById('totalScreenFree').innerText = dataset.screen_free_time;
 
-                // 1. Draw Center Participation Chart List
+                // 1. Process Center Board Structure Layout List loop
                 const lbTarget = document.getElementById('leaderboardTarget');
                 lbTarget.innerHTML = '';
                 
@@ -253,8 +245,11 @@
                     row.className = 'chart-row';
                     const pct = maxCityVal > 0 ? (item.value / maxCityVal) * 100 : 0;
                     
+                    // Format city display to use cleaner capitalized structure (e.g., Frankfurt · DE)
+                    let cleanCityDisplay = item.city.replace('GERMANY', 'DE').replace('UNITED KINGDOM', 'UK').replace('NETHERLANDS', 'NL').replace('DENMARK', 'DK').replace('SWEDEN', 'SE').replace('POLAND', 'PL');
+                    
                     row.innerHTML = `
-                        <div class="label-city">${item.city}</div>
+                        <div class="label-city">${cleanCityDisplay}</div>
                         <div class="bar-track">
                             <div class="progress-bar" style="width: ${pct}%"></div>
                         </div>
@@ -263,7 +258,7 @@
                     lbTarget.appendChild(row);
                 });
 
-                // 2. Draw Readers by Age Chart List
+                // 2. Process Age Distribution Dataset Layout List loop
                 const ageTarget = document.getElementById('ageTarget');
                 ageTarget.innerHTML = '';
                 
@@ -287,13 +282,13 @@
                 }
 
             } catch (error) {
-                console.error("Layout calculations pipeline error event exception:", error);
+                console.error("UI Calculation processing layout engine exception standard event catch:", error);
             }
         }
 
-        // Initialize and setup background refresh loop interval
+        // Initialize display triggers
         updateSignageUI();
-        setInterval(updateSignageUI, 60000);
+        setInterval(updateSignageUI, 60000); // Re-evaluate local values smoothly every 60 seconds
     </script>
 </body>
 </html>
