@@ -1,0 +1,47 @@
+{
+  "pages_read": "26,551",
+  "participants": "161",
+  "screen_free_time": "885h",
+  "leaderboard": [
+    {
+      "city": "FRANKFURT · GERMANY",
+      "value": 223
+    },
+    {
+      "city": "HAMBURG · GERMANY",
+      "value": 168
+    },
+    {
+      "city": "ESSEN · GERMANY",
+      "value": 93
+    },
+    {
+      "city": "MUNICH · GERMANY",
+      "value": 82
+    },
+    {
+      "city": "BERLIN · GERMANY",
+      "value": 74
+    },
+    {
+      "city": "STOCKHOLM · SWEDEN",
+      "value": 41
+    },
+    {
+      "city": "DARKHANA · UNITED KINGDOM",
+      "value": 36
+    },
+    {
+      "city": "WARSAW · POLAND",
+      "value": 27
+    },
+    {
+      "city": "AMSTERDAM · NETHERLANDS",
+      "value": 22
+    },
+    {
+      "city": "COPENHAGEN · DENMARK",
+      "value": 19
+    }
+  ]
+}
