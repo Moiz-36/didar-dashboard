@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pages to Didar - 4K Reference Matching Edition</title>
+    <title>Pages to Didar - 4K Maximum Text Edition</title>
     <style>
         /* 4K Reset and Canvas Setup */
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -21,14 +21,14 @@
 
         /* Double-Frame Board Design matching screenshot */
         .outer-frame {
-            border: 6px solid #967D55;
-            padding: 8px;
+            border: 8px solid #967D55; /* Slightly thicker outer frame */
+            padding: 10px;
             width: 100%;
             height: 100%;
             display: flex;
         }
         .inner-frame {
-            border: 2px solid #967D55;
+            border: 3px solid #967D55;
             width: 100%;
             height: 100%;
             padding: 4rem 5rem;
@@ -42,17 +42,17 @@
             justify-content: space-between;
             align-items: flex-start;
             width: 100%;
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
         }
         .title-area h1 {
-            font-size: 8.5rem;
+            font-size: 11rem; /* Increased from 8.5rem */
             font-weight: bold;
             text-transform: uppercase;
             line-height: 0.95;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
         .title-area .subtitle {
-            font-size: 2.4rem;
+            font-size: 3.2rem; /* Increased from 2.4rem */
             letter-spacing: 0.5px;
             font-weight: 500;
             color: #967D55;
@@ -63,17 +63,17 @@
             align-items: center;
         }
         .brand-logo {
-            width: 180px;
+            width: 240px; /* Scaled up logo image sizing to balance text */
             height: auto;
         }
 
         /* Big Numbers Statistics Bar */
         .metrics-bar {
-            border-top: 3px solid #967D55;
-            border-bottom: 3px solid #967D55;
+            border-top: 4px solid #967D55;
+            border-bottom: 4px solid #967D55;
             display: flex;
-            padding: 1.5rem 0;
-            margin-bottom: 3rem;
+            padding: 2.5rem 0; /* Expanded padding */
+            margin-bottom: 4rem;
             width: 100%;
         }
         .metric-box {
@@ -81,15 +81,15 @@
             text-align: center;
         }
         .metric-value {
-            font-size: 8.5rem;
+            font-size: 11rem; /* Increased from 8.5rem */
             font-weight: bold;
             line-height: 1;
         }
         .metric-label {
-            font-size: 1.8rem;
+            font-size: 2.6rem; /* Increased from 1.8rem */
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-top: 0.5rem;
+            margin-top: 1rem;
             font-weight: bold;
         }
 
@@ -98,21 +98,21 @@
             display: flex;
             flex: 1;
             width: 100%;
-            height: calc(100% - 28rem);
-            gap: 5rem;
+            height: calc(100% - 32rem);
+            gap: 6rem;
         }
         .column-left { width: 50%; height: 100%; display: flex; flex-direction: column; }
         .column-right { width: 50%; height: 100%; display: flex; flex-direction: column; }
         
         /* Column Section Header Blocks */
         .section-heading {
-            font-size: 2.2rem;
+            font-size: 3.2rem; /* Increased from 2.2rem */
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: bold;
-            margin-bottom: 2rem;
-            border-bottom: 3px solid #967D55;
-            padding-bottom: 0.5rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 4px solid #967D55;
+            padding-bottom: 1rem;
         }
 
         /* Chart Row Mechanics */
@@ -129,21 +129,21 @@
             height: 8%;
         }
 
-        /* Layout Label Sizing to match reference look cleanly */
+        /* Layout Label Sizing - widened to prevent overlaps with massive fonts */
         .label-city {
-            width: 280px;
-            font-size: 2rem;
+            width: 340px; /* Widened slightly to host bigger text */
+            font-size: 2.8rem; /* Increased from 2rem */
             text-align: left;
             padding-right: 1.5rem;
-            font-weight: 500;
+            font-weight: bold;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
         .label-age {
-            width: 120px;
-            font-size: 2rem;
-            font-weight: 500;
+            width: 150px; /* Widened slightly */
+            font-size: 2.8rem; /* Increased from 2rem */
+            font-weight: bold;
             text-align: left;
         }
 
@@ -157,17 +157,17 @@
         }
         .progress-bar {
             background-color: #967D55;
-            height: 65%;
-            border-radius: 0 4px 4px 0; /* Tight crisp framing alignment */
+            height: 75%; /* Thicker bar fills for better visibility */
+            border-radius: 0 6px 6px 0;
             transition: width 1.2s cubic-bezier(0.1, 1, 0.1, 1);
             width: 0%;
         }
 
         /* Numeric Value Ends placement formatting */
         .value-counter {
-            font-size: 2rem;
+            font-size: 2.8rem; /* Increased from 2rem */
             font-weight: bold;
-            min-width: 80px;
+            min-width: 110px; /* Expanded spacing bucket */
             text-align: right;
         }
     </style>
