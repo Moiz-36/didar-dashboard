@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pages to Didar - 4K Maximum Text Edition</title>
+    <title>Pages to Didar - Modern Box Signage Edition</title>
     <style>
-        /* 4K Reset and Canvas Setup */
+        /* Global Canvas Framework Configuration */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body {
@@ -19,9 +19,9 @@
             overflow: hidden;
         }
 
-        /* Double-Frame Board Design matching screenshot */
+        /* Double-Frame Board Design Layout border constraints */
         .outer-frame {
-            border: 8px solid #967D55; /* Slightly thicker outer frame */
+            border: 8px solid #967D55;
             padding: 10px;
             width: 100%;
             height: 100%;
@@ -36,7 +36,7 @@
             flex-direction: column;
         }
 
-        /* Top Header Alignment */
+        /* Top Header Area Configuration */
         .header-section {
             display: flex;
             justify-content: space-between;
@@ -45,34 +45,29 @@
             margin-bottom: 3rem;
         }
         .title-area h1 {
-            font-size: 11rem; /* Increased from 8.5rem */
+            font-size: 11rem;
             font-weight: bold;
             text-transform: uppercase;
             line-height: 0.95;
             margin-bottom: 1.5rem;
         }
         .title-area .subtitle {
-            font-size: 3.2rem; /* Increased from 2.4rem */
+            font-size: 3.2rem;
             letter-spacing: 0.5px;
             font-weight: 500;
             color: #967D55;
         }
-        .brand-area {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
         .brand-logo {
-            width: 240px; /* Scaled up logo image sizing to balance text */
+            width: 240px;
             height: auto;
         }
 
-        /* Big Numbers Statistics Bar */
+        /* Unified Header Metric Counters Bar Row */
         .metrics-bar {
             border-top: 4px solid #967D55;
             border-bottom: 4px solid #967D55;
             display: flex;
-            padding: 2.5rem 0; /* Expanded padding */
+            padding: 2.5rem 0;
             margin-bottom: 4rem;
             width: 100%;
         }
@@ -81,32 +76,43 @@
             text-align: center;
         }
         .metric-value {
-            font-size: 11rem; /* Increased from 8.5rem */
+            font-size: 11rem;
             font-weight: bold;
             line-height: 1;
         }
         .metric-label {
-            font-size: 2.6rem; /* Increased from 1.8rem */
+            font-size: 2.6rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-top: 1rem;
             font-weight: bold;
         }
 
-        /* Dual Column Layout Split */
+        /* Dual Column Split Layout Workspace mapping */
         .main-workspace {
             display: flex;
             flex: 1;
             width: 100%;
             height: calc(100% - 32rem);
-            gap: 6rem;
+            gap: 5rem;
         }
-        .column-left { width: 50%; height: 100%; display: flex; flex-direction: column; }
-        .column-right { width: 50%; height: 100%; display: flex; flex-direction: column; }
         
-        /* Column Section Header Blocks */
+        /* Modern Structured Container Cards (The Section Boxes) */
+        .content-card-box {
+            width: 50%;
+            height: 100%;
+            background-color: #F2EDE2; /* Tinted darker background for box contrast */
+            border: 3px solid #E5DEC9;
+            border-radius: 16px;
+            padding: 3.5rem 4rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px rgba(150, 125, 85, 0.05);
+        }
+        
+        /* Dynamic Inner Column Table Headings formatting */
         .section-heading {
-            font-size: 3.2rem; /* Increased from 2.2rem */
+            font-size: 3.2rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: bold;
@@ -115,7 +121,7 @@
             padding-bottom: 1rem;
         }
 
-        /* Chart Row Mechanics */
+        /* Chart Row Matrix Items properties configuration */
         .chart-container {
             display: flex;
             flex-direction: column;
@@ -129,10 +135,10 @@
             height: 8%;
         }
 
-        /* Layout Label Sizing - widened to prevent overlaps with massive fonts */
+        /* Sizing Constraints Parameters Labels */
         .label-city {
-            width: 340px; /* Widened slightly to host bigger text */
-            font-size: 2.8rem; /* Increased from 2rem */
+            width: 320px;
+            font-size: 2.6rem;
             text-align: left;
             padding-right: 1.5rem;
             font-weight: bold;
@@ -141,13 +147,13 @@
             text-overflow: ellipsis;
         }
         .label-age {
-            width: 150px; /* Widened slightly */
-            font-size: 2.8rem; /* Increased from 2rem */
+            width: 140px;
+            font-size: 2.6rem;
             font-weight: bold;
             text-align: left;
         }
 
-        /* Bar Tracks */
+        /* Sleeker Thinner Bar Tracks */
         .bar-track {
             flex: 1;
             height: 100%;
@@ -157,17 +163,17 @@
         }
         .progress-bar {
             background-color: #967D55;
-            height: 75%; /* Thicker bar fills for better visibility */
-            border-radius: 0 6px 6px 0;
+            height: 40%; /* Lowered bar size from 75% to 40% for a sleeker profile */
+            border-radius: 4px;
             transition: width 1.2s cubic-bezier(0.1, 1, 0.1, 1);
             width: 0%;
         }
 
-        /* Numeric Value Ends placement formatting */
+        /* Right End Counter Digits layout */
         .value-counter {
-            font-size: 2.8rem; /* Increased from 2rem */
+            font-size: 2.6rem;
             font-weight: bold;
-            min-width: 110px; /* Expanded spacing bucket */
+            min-width: 110px;
             text-align: right;
         }
     </style>
@@ -204,12 +210,12 @@
 
             <div class="main-workspace">
                 
-                <div class="column-left">
+                <div class="content-card-box">
                     <h2 class="section-heading">Participants</h2>
                     <div class="chart-container" id="leaderboardTarget"></div>
                 </div>
 
-                <div class="column-right">
+                <div class="content-card-box">
                     <h2 class="section-heading">Reader by Age</h2>
                     <div class="chart-container" id="ageTarget"></div>
                 </div>
@@ -222,19 +228,19 @@
     <script>
         async function updateSignageUI() {
             try {
-                // Incorporate dynamic cache-busting logic to prevent frozen screens
+                // Incorporate dynamic cache-busting timestamp string parameter additions
                 const uniqueTimestamp = new Date().getTime();
                 const cacheBustingUrl = `data.json?t=${uniqueTimestamp}`;
                 
                 const res = await fetch(cacheBustingUrl);
                 const dataset = await res.json();
                 
-                // Set Header Metric Strings safely
+                // Set Global Static Metric Totals fields text safely
                 document.getElementById('totalPages').innerText = dataset.pages_read;
                 document.getElementById('totalParticipants').innerText = dataset.participants;
                 document.getElementById('totalScreenFree').innerText = dataset.screen_free_time;
 
-                // 1. Process Center Board Structure Layout List loop
+                // 1. Process Center Board Layout List loop mappings array
                 const lbTarget = document.getElementById('leaderboardTarget');
                 lbTarget.innerHTML = '';
                 
@@ -243,9 +249,10 @@
                 dataset.leaderboard.slice(0, 10).forEach(item => {
                     const row = document.createElement('div');
                     row.className = 'chart-row';
-                    const pct = maxCityVal > 0 ? (item.value / maxCityVal) * 100 : 0;
                     
-                    // Format city display to use cleaner capitalized structure (e.g., Frankfurt · DE)
+                    // Constrained to max out at 85% width so there's always space inside the boxes
+                    const pct = maxCityVal > 0 ? (item.value / maxCityVal) * 85 : 0;
+                    
                     let cleanCityDisplay = item.city.replace('GERMANY', 'DE').replace('UNITED KINGDOM', 'UK').replace('NETHERLANDS', 'NL').replace('DENMARK', 'DK').replace('SWEDEN', 'SE').replace('POLAND', 'PL');
                     
                     row.innerHTML = `
@@ -258,7 +265,7 @@
                     lbTarget.appendChild(row);
                 });
 
-                // 2. Process Age Distribution Dataset Layout List loop
+                // 2. Process Age Categories Breakdown Layout List loop mappings array
                 const ageTarget = document.getElementById('ageTarget');
                 ageTarget.innerHTML = '';
                 
@@ -268,7 +275,9 @@
                     dataset.age_groups.forEach(item => {
                         const row = document.createElement('div');
                         row.className = 'chart-row';
-                        const pct = maxAgeVal > 0 ? (item.count / maxAgeVal) * 100 : 0;
+                        
+                        // Constrained to max out at 85% width inside the card container box boundaries
+                        const pct = maxAgeVal > 0 ? (item.count / maxAgeVal) * 85 : 0;
                         
                         row.innerHTML = `
                             <div class="label-age">${item.band}</div>
@@ -282,13 +291,13 @@
                 }
 
             } catch (error) {
-                console.error("UI Calculation processing layout engine exception standard event catch:", error);
+                console.error("UI Calculation processing layout engine execution catch event exception:", error);
             }
         }
 
-        // Initialize display triggers
+        // Initialize display execution loops
         updateSignageUI();
-        setInterval(updateSignageUI, 60000); // Re-evaluate local values smoothly every 60 seconds
+        setInterval(updateSignageUI, 60000);
     </script>
 </body>
 </html>
