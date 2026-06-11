@@ -9,7 +9,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         html {
-            font-size: clamp(2.5px, min(0.26vw, 0.46vh), 10px);
+            font-size: min(0.50vw, 0.89vh);
         }
         
         body {
@@ -18,8 +18,10 @@
             color: #967D55;
             height: 100vh;
             width: 100vw;
-            padding: 4.5rem;
+            padding: 0;
             display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
         }
 
@@ -27,8 +29,10 @@
         .outer-frame {
             border: 5rem solid #967D55;
             padding: 1rem;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 56.25vw;
+            max-width: 177.78vh;
+            max-height: 100vh;
             display: flex;
         }
         .inner-frame {
