@@ -162,14 +162,15 @@
         /* Sleeker Thinner Bar Tracks */
         .bar-track {
             flex: 1;
-            height: 24px; /* Explicit height framework for track container placement */
-            display: flex;
-            align-items: center;
-            padding-right: 2rem;
+            height: 38px; /* Complete background track for the filled bar */
+            background-color: #E5DEC9;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-right: 2rem;
         }
         .progress-bar {
             background-color: #967D55;
-            height: 38px; /* Thinner, sleeker line profile matching your request */
+            height: 100%;
             border-radius: 4px;
             transition: width 1.2s cubic-bezier(0.1, 1, 0.1, 1);
             width: 0%;
@@ -256,8 +257,7 @@
                     const row = document.createElement('div');
                     row.className = 'chart-row';
                     
-                    // Constrained to max out at 90% width inside the container line
-                    const pct = maxCityVal > 0 ? (item.value / maxCityVal) * 90 : 0;
+                    const pct = maxCityVal > 0 ? (item.value / maxCityVal) * 100 : 0;
                     
                     // REMOVED ABBREVIATIONS: The item.city string will print exactly as grabbed from the webpage
                     row.innerHTML = `
@@ -283,7 +283,7 @@
                         const row = document.createElement('div');
                         row.className = 'chart-row';
                         
-                        const pct = maxAgeVal > 0 ? (item.count / maxAgeVal) * 90 : 0;
+                        const pct = maxAgeVal > 0 ? (item.count / maxAgeVal) * 100 : 0;
                         
                         row.innerHTML = `
                             <div class="label-text">${item.band}</div>
