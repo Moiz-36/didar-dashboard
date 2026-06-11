@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pages to Didar - Modern Box Signage Edition</title>
+    <title>Pages to Didar - Full Name Stacked Edition</title>
     <style>
         /* Global Canvas Framework Configuration */
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -101,7 +101,7 @@
         .content-card-box {
             width: 50%;
             height: 100%;
-            background-color: #F2EDE2; /* Tinted darker background for box contrast */
+            background-color: #F2EDE2; 
             border: 3px solid #E5DEC9;
             border-radius: 16px;
             padding: 3.5rem 4rem;
@@ -121,57 +121,63 @@
             padding-bottom: 1rem;
         }
 
-        /* Chart Row Matrix Items properties configuration */
+        /* Chart Container holds rows vertically */
         .chart-container {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             flex: 1;
+            overflow: hidden;
         }
+
+        /* Chart Row stacked framework layout */
         .chart-row {
+            display: flex;
+            flex-direction: column; /* Stacks text on top of the bar container */
+            width: 100%;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Row Container to put the sleeker bar and number side-by-side */
+        .bar-row-line {
             display: flex;
             align-items: center;
             width: 100%;
-            height: 8%;
         }
 
-        /* Sizing Constraints Parameters Labels */
-        .label-city {
-            width: 320px;
-            font-size: 2.6rem;
-            text-align: left;
-            padding-right: 1.5rem;
+        /* Full Sized Text Label Block (Now sitting cleanly above the bar) */
+        .label-text {
+            width: 100%;
+            font-size: 2.4rem;
             font-weight: bold;
+            text-transform: uppercase;
+            text-align: left;
+            margin-bottom: 0.4rem; /* Small spacing buffer before bar track */
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-        }
-        .label-age {
-            width: 140px;
-            font-size: 2.6rem;
-            font-weight: bold;
-            text-align: left;
         }
 
         /* Sleeker Thinner Bar Tracks */
         .bar-track {
             flex: 1;
-            height: 100%;
+            height: 24px; /* Explicit height framework for track container placement */
             display: flex;
             align-items: center;
             padding-right: 2rem;
         }
         .progress-bar {
             background-color: #967D55;
-            height: 40%; /* Lowered bar size from 75% to 40% for a sleeker profile */
+            height: 10px; /* Thinner, sleeker line profile matching your request */
             border-radius: 4px;
             transition: width 1.2s cubic-bezier(0.1, 1, 0.1, 1);
             width: 0%;
         }
 
-        /* Right End Counter Digits layout */
+        /* Right End Counter Digits layout scaling */
         .value-counter {
-            font-size: 2.6rem;
+            font-size: 2.4rem;
             font-weight: bold;
             min-width: 110px;
             text-align: right;
@@ -250,17 +256,18 @@
                     const row = document.createElement('div');
                     row.className = 'chart-row';
                     
-                    // Constrained to max out at 85% width so there's always space inside the boxes
-                    const pct = maxCityVal > 0 ? (item.value / maxCityVal) * 85 : 0;
+                    // Constrained to max out at 90% width inside the container line
+                    const pct = maxCityVal > 0 ? (item.value / maxCityVal) * 90 : 0;
                     
-                    let cleanCityDisplay = item.city.replace('GERMANY', 'DE').replace('UNITED KINGDOM', 'UK').replace('NETHERLANDS', 'NL').replace('DENMARK', 'DK').replace('SWEDEN', 'SE').replace('POLAND', 'PL');
-                    
+                    // REMOVED ABBREVIATIONS: The item.city string will print exactly as grabbed from the webpage
                     row.innerHTML = `
-                        <div class="label-city">${cleanCityDisplay}</div>
-                        <div class="bar-track">
-                            <div class="progress-bar" style="width: ${pct}%"></div>
+                        <div class="label-text">${item.city}</div>
+                        <div class="bar-row-line">
+                            <div class="bar-track">
+                                <div class="progress-bar" style="width: ${pct}%"></div>
+                            </div>
+                            <div class="value-counter">${item.value}h</div>
                         </div>
-                        <div class="value-counter">${item.value}h</div>
                     `;
                     lbTarget.appendChild(row);
                 });
@@ -276,15 +283,16 @@
                         const row = document.createElement('div');
                         row.className = 'chart-row';
                         
-                        // Constrained to max out at 85% width inside the card container box boundaries
-                        const pct = maxAgeVal > 0 ? (item.count / maxAgeVal) * 85 : 0;
+                        const pct = maxAgeVal > 0 ? (item.count / maxAgeVal) * 90 : 0;
                         
                         row.innerHTML = `
-                            <div class="label-age">${item.band}</div>
-                            <div class="bar-track">
-                                <div class="progress-bar" style="width: ${pct}%"></div>
+                            <div class="label-text">${item.band}</div>
+                            <div class="bar-row-line">
+                                <div class="bar-track">
+                                    <div class="progress-bar" style="width: ${pct}%"></div>
+                                </div>
+                                <div class="value-counter">${item.count}</div>
                             </div>
-                            <div class="value-counter">${item.count}</div>
                         `;
                         ageTarget.appendChild(row);
                     });
