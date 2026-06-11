@@ -7,6 +7,10 @@
     <style>
         /* Global Canvas Framework Configuration */
         * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            font-size: clamp(4px, 0.26vw, 10px);
+        }
         
         body {
             font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
@@ -21,14 +25,14 @@
 
         /* Double-Frame Board Design Layout border constraints */
         .outer-frame {
-            border: 50px solid #967D55;
-            padding: 10px;
+            border: 5rem solid #967D55;
+            padding: 1rem;
             width: 100%;
             height: 100%;
             display: flex;
         }
         .inner-frame {
-            border: 3px solid #967D55;
+            border: 0.3rem solid #967D55;
             width: 100%;
             height: 100%;
             padding: 4rem 5rem;
@@ -58,14 +62,14 @@
             color: #967D55;
         }
         .brand-logo {
-            width: 360px;
+            width: 36rem;
             height: auto;
         }
 
         /* Unified Header Metric Counters Bar Row */
         .metrics-bar {
-            border-top: 4px solid #967D55;
-            border-bottom: 4px solid #967D55;
+            border-top: 0.4rem solid #967D55;
+            border-bottom: 0.4rem solid #967D55;
             display: flex;
             padding: 2.5rem 0;
             margin-bottom: 4rem;
@@ -102,8 +106,8 @@
             width: 50%;
             height: 100%;
             background-color: #F2EDE2; 
-            border: 3px solid #E5DEC9;
-            border-radius: 16px;
+            border: 0.3rem solid #E5DEC9;
+            border-radius: 1.6rem;
             padding: 3.5rem 4rem;
             display: flex;
             flex-direction: column;
@@ -117,7 +121,7 @@
             letter-spacing: 1px;
             font-weight: bold;
             margin-bottom: 2.5rem;
-            border-bottom: 4px solid #967D55;
+            border-bottom: 0.4rem solid #967D55;
             padding-bottom: 1rem;
         }
 
@@ -162,16 +166,16 @@
         /* Sleeker Thinner Bar Tracks */
         .bar-track {
             flex: 1;
-            height: 38px; /* Complete background track for the filled bar */
+            height: 3.8rem; /* Complete background track for the filled bar */
             background-color: rgba(150, 125, 85, 0.18);
-            border-radius: 4px;
+            border-radius: 0.4rem;
             overflow: hidden;
             margin-right: 2rem;
         }
         .progress-bar {
             background-color: #967D55;
             height: 100%;
-            border-radius: 4px;
+            border-radius: 0.4rem;
             transition: width 1.2s cubic-bezier(0.1, 1, 0.1, 1);
             width: 0%;
         }
@@ -180,7 +184,7 @@
         .value-counter {
             font-size: 4rem;
             font-weight: bold;
-            min-width: 110px;
+            min-width: 11rem;
             text-align: right;
         }
     </style>
