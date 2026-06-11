@@ -1,11 +1,11 @@
 {
-  "pages_read": "45,142",
-  "participants": "230",
-  "screen_free_time": "1,505h",
+  "pages_read": "45,248",
+  "participants": "231",
+  "screen_free_time": "1,508h",
   "leaderboard": [
     {
       "city": "AMSTERDAM · NETHERLANDS",
-      "value": 276
+      "value": 278
     },
     {
       "city": "FRANKFURT · GERMANY",
@@ -47,7 +47,7 @@
   "age_groups": [
     {
       "band": "<13",
-      "count": 39
+      "count": 40
     },
     {
       "band": "13–17",
