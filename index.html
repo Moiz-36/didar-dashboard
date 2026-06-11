@@ -39,7 +39,7 @@
             border: 0.3rem solid #967D55;
             width: 100%;
             height: 100%;
-            padding: 3rem 4rem;
+            padding: 2.5rem 4rem;
             display: flex;
             flex-direction: column;
         }
@@ -50,27 +50,27 @@
             justify-content: space-between;
             align-items: flex-start;
             width: 100%;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
         .title-area {
             min-width: 0;
         }
         .title-area h1 {
-            font-size: 15rem;
+            font-size: 12rem;
             font-weight: bold;
             text-transform: uppercase;
             line-height: 0.95;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             white-space: nowrap;
         }
         .title-area .subtitle {
-            font-size: 6.2rem;
+            font-size: 4.7rem;
             letter-spacing: 0.5px;
             font-weight: 500;
             color: #967D55;
         }
         .brand-logo {
-            width: 30rem;
+            width: 22rem;
             height: auto;
         }
 
@@ -79,8 +79,8 @@
             border-top: 0.4rem solid #967D55;
             border-bottom: 0.4rem solid #967D55;
             display: flex;
-            padding: 1.8rem 0;
-            margin-bottom: 2.5rem;
+            padding: 1.3rem 0;
+            margin-bottom: 1.8rem;
             width: 100%;
         }
         .metric-box {
@@ -88,15 +88,15 @@
             text-align: center;
         }
         .metric-value {
-            font-size: 8rem;
+            font-size: 6.5rem;
             font-weight: bold;
             line-height: 1;
         }
         .metric-label {
-            font-size: 2.1rem;
+            font-size: 1.8rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-top: 0.7rem;
+            margin-top: 0.5rem;
             font-weight: 500;
         }
 
@@ -116,7 +116,7 @@
             background-color: #F2EDE2; 
             border: 0.3rem solid #E5DEC9;
             border-radius: 1.6rem;
-            padding: 2.5rem 3rem;
+            padding: 2rem 2.5rem;
             display: flex;
             flex-direction: column;
             box-shadow: 0 4px 20px rgba(150, 125, 85, 0.05);
@@ -124,13 +124,13 @@
         
         /* Dynamic Inner Column Table Headings formatting */
         .section-heading {
-            font-size: 4rem;
+            font-size: 3.5rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: bold;
-            margin-bottom: 1.6rem;
+            margin-bottom: 1.2rem;
             border-bottom: 0.4rem solid #967D55;
-            padding-bottom: 0.8rem;
+            padding-bottom: 0.6rem;
         }
 
         /* Chart Container holds rows vertically */
@@ -145,27 +145,30 @@
         /* Chart Row stacked framework layout */
         .chart-row {
             display: flex;
-            flex-direction: column; /* Stacks text on top of the bar container */
+            align-items: center;
+            gap: 1.8rem;
             width: 100%;
             justify-content: center;
-            margin-bottom: 0.3rem;
+            min-height: 0;
         }
 
         /* Row Container to put the sleeker bar and number side-by-side */
         .bar-row-line {
             display: flex;
             align-items: center;
+            flex: 1;
+            min-width: 0;
             width: 100%;
         }
 
         /* Full Sized Text Label Block (Now sitting cleanly above the bar) */
         .label-text {
-            width: 100%;
-            font-size: 3rem;
+            width: 36%;
+            flex: 0 0 36%;
+            font-size: 2.4rem;
             font-weight: 500;
             text-transform: uppercase;
             text-align: left;
-            margin-bottom: 0.4rem; /* Small spacing buffer before bar track */
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -174,11 +177,11 @@
         /* Sleeker Thinner Bar Tracks */
         .bar-track {
             flex: 1;
-            height: 2.8rem; /* Complete background track for the filled bar */
+            height: 2.2rem; /* Complete background track for the filled bar */
             background-color: rgba(150, 125, 85, 0.18);
             border-radius: 0.4rem;
             overflow: hidden;
-            margin-right: 2rem;
+            margin-right: 1.4rem;
         }
         .progress-bar {
             background-color: #967D55;
@@ -190,9 +193,9 @@
 
         /* Right End Counter Digits layout scaling */
         .value-counter {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: bold;
-            min-width: 9rem;
+            min-width: 7rem;
             text-align: right;
         }
     </style>
