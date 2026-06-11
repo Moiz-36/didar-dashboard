@@ -27,7 +27,7 @@
 
         /* Double-Frame Board Design Layout border constraints */
         .outer-frame {
-            border: 5rem solid #967D55;
+            border: 4rem solid #967D55;
             padding: 1rem;
             width: 100vw;
             height: 56.25vw;
@@ -39,7 +39,7 @@
             border: 0.3rem solid #967D55;
             width: 100%;
             height: 100%;
-            padding: 4rem 5rem;
+            padding: 3rem 4rem;
             display: flex;
             flex-direction: column;
         }
@@ -50,23 +50,27 @@
             justify-content: space-between;
             align-items: flex-start;
             width: 100%;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
+        }
+        .title-area {
+            min-width: 0;
         }
         .title-area h1 {
-            font-size: 20rem;
+            font-size: 15rem;
             font-weight: bold;
             text-transform: uppercase;
             line-height: 0.95;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
+            white-space: nowrap;
         }
         .title-area .subtitle {
-            font-size: 10rem;
+            font-size: 6.2rem;
             letter-spacing: 0.5px;
             font-weight: 500;
             color: #967D55;
         }
         .brand-logo {
-            width: 36rem;
+            width: 30rem;
             height: auto;
         }
 
@@ -75,8 +79,8 @@
             border-top: 0.4rem solid #967D55;
             border-bottom: 0.4rem solid #967D55;
             display: flex;
-            padding: 2.5rem 0;
-            margin-bottom: 4rem;
+            padding: 1.8rem 0;
+            margin-bottom: 2.5rem;
             width: 100%;
         }
         .metric-box {
@@ -84,15 +88,15 @@
             text-align: center;
         }
         .metric-value {
-            font-size: 11rem;
+            font-size: 8rem;
             font-weight: bold;
             line-height: 1;
         }
         .metric-label {
-            font-size: 2.6rem;
+            font-size: 2.1rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-top: 1rem;
+            margin-top: 0.7rem;
             font-weight: 500;
         }
 
@@ -101,8 +105,8 @@
             display: flex;
             flex: 1;
             width: 100%;
-            height: calc(100% - 32rem);
-            gap: 5rem;
+            min-height: 0;
+            gap: 3rem;
         }
         
         /* Modern Structured Container Cards (The Section Boxes) */
@@ -112,7 +116,7 @@
             background-color: #F2EDE2; 
             border: 0.3rem solid #E5DEC9;
             border-radius: 1.6rem;
-            padding: 3.5rem 4rem;
+            padding: 2.5rem 3rem;
             display: flex;
             flex-direction: column;
             box-shadow: 0 4px 20px rgba(150, 125, 85, 0.05);
@@ -120,13 +124,13 @@
         
         /* Dynamic Inner Column Table Headings formatting */
         .section-heading {
-            font-size: 5rem;
+            font-size: 4rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: bold;
-            margin-bottom: 2.5rem;
+            margin-bottom: 1.6rem;
             border-bottom: 0.4rem solid #967D55;
-            padding-bottom: 1rem;
+            padding-bottom: 0.8rem;
         }
 
         /* Chart Container holds rows vertically */
@@ -144,7 +148,7 @@
             flex-direction: column; /* Stacks text on top of the bar container */
             width: 100%;
             justify-content: center;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
         }
 
         /* Row Container to put the sleeker bar and number side-by-side */
@@ -157,7 +161,7 @@
         /* Full Sized Text Label Block (Now sitting cleanly above the bar) */
         .label-text {
             width: 100%;
-            font-size: 4rem;
+            font-size: 3rem;
             font-weight: 500;
             text-transform: uppercase;
             text-align: left;
@@ -170,7 +174,7 @@
         /* Sleeker Thinner Bar Tracks */
         .bar-track {
             flex: 1;
-            height: 3.8rem; /* Complete background track for the filled bar */
+            height: 2.8rem; /* Complete background track for the filled bar */
             background-color: rgba(150, 125, 85, 0.18);
             border-radius: 0.4rem;
             overflow: hidden;
@@ -186,9 +190,9 @@
 
         /* Right End Counter Digits layout scaling */
         .value-counter {
-            font-size: 4rem;
+            font-size: 3rem;
             font-weight: bold;
-            min-width: 11rem;
+            min-width: 9rem;
             text-align: right;
         }
     </style>
