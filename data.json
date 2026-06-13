@@ -1,7 +1,7 @@
 {
-  "pages_read": "51,915",
+  "pages_read": "52,475",
   "participants": "251",
-  "screen_free_time": "1,731h",
+  "screen_free_time": "1,749h",
   "leaderboard": [
     {
       "city": "AMSTERDAM · NETHERLANDS",
@@ -9,15 +9,15 @@
     },
     {
       "city": "STOCKHOLM · SWEDEN",
-      "value": 246
+      "value": 248
+    },
+    {
+      "city": "HAMBURG · GERMANY",
+      "value": 243
     },
     {
       "city": "FRANKFURT · GERMANY",
       "value": 241
-    },
-    {
-      "city": "HAMBURG · GERMANY",
-      "value": 227
     },
     {
       "city": "ESSEN · GERMANY",
