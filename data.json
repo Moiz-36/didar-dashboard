@@ -1,7 +1,7 @@
 {
-  "pages_read": "64,095",
-  "participants": "291",
-  "screen_free_time": "2,137h",
+  "pages_read": "64,802",
+  "participants": "293",
+  "screen_free_time": "2,160h",
   "leaderboard": [
     {
       "city": "STOCKHOLM · SWEDEN",
@@ -29,7 +29,7 @@
     },
     {
       "city": "MUNICH · GERMANY",
-      "value": 117
+      "value": 140
     },
     {
       "city": "DARKHANA · UNITED KINGDOM",
@@ -47,11 +47,11 @@
   "age_groups": [
     {
       "band": "<13",
-      "count": 47
+      "count": 48
     },
     {
       "band": "13–17",
-      "count": 18
+      "count": 19
     },
     {
       "band": "18–29",
