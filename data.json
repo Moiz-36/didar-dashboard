@@ -1,7 +1,7 @@
 {
-  "pages_read": "64,802",
-  "participants": "293",
-  "screen_free_time": "2,160h",
+  "pages_read": "64,876",
+  "participants": "294",
+  "screen_free_time": "2,163h",
   "leaderboard": [
     {
       "city": "STOCKHOLM · SWEDEN",
@@ -13,11 +13,11 @@
     },
     {
       "city": "FRANKFURT · GERMANY",
-      "value": 264
+      "value": 266
     },
     {
       "city": "HAMBURG · GERMANY",
-      "value": 248
+      "value": 249
     },
     {
       "city": "BERLIN · GERMANY",
@@ -67,7 +67,7 @@
     },
     {
       "band": "60+",
-      "count": 9
+      "count": 10
     }
   ]
 }
