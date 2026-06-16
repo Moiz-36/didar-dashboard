@@ -1,7 +1,7 @@
 {
-  "pages_read": "68,807",
+  "pages_read": "69,098",
   "participants": "311",
-  "screen_free_time": "2,294h",
+  "screen_free_time": "2,303h",
   "leaderboard": [
     {
       "city": "STOCKHOLM · SWEDEN",
@@ -25,7 +25,7 @@
     },
     {
       "city": "ESSEN · GERMANY",
-      "value": 184
+      "value": 189
     },
     {
       "city": "MUNICH · GERMANY",
@@ -40,8 +40,8 @@
       "value": 36
     },
     {
-      "city": "COPENHAGEN · DENMARK",
-      "value": 28
+      "city": "KRAKÓW · POLAND",
+      "value": 30
     }
   ],
   "age_groups": [
