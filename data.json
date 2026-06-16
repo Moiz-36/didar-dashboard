@@ -1,7 +1,7 @@
 {
-  "pages_read": "73,304",
-  "participants": "315",
-  "screen_free_time": "2,443h",
+  "pages_read": "73,496",
+  "participants": "317",
+  "screen_free_time": "2,450h",
   "leaderboard": [
     {
       "city": "STOCKHOLM · SWEDEN",
@@ -36,12 +36,12 @@
       "value": 50
     },
     {
-      "city": "DARKHANA · UNITED KINGDOM",
-      "value": 38
+      "city": "WARSAW · POLAND",
+      "value": 40
     },
     {
-      "city": "WARSAW · POLAND",
-      "value": 37
+      "city": "DARKHANA · UNITED KINGDOM",
+      "value": 38
     }
   ],
   "age_groups": [
@@ -59,7 +59,7 @@
     },
     {
       "band": "30–44",
-      "count": 89
+      "count": 91
     },
     {
       "band": "45–59",
