@@ -1,7 +1,7 @@
 {
-  "pages_read": "109,906",
-  "participants": "368",
-  "screen_free_time": "3,664h",
+  "pages_read": "110,063",
+  "participants": "369",
+  "screen_free_time": "3,669h",
   "leaderboard": [
     {
       "city": "ESSEN · GERMANY",
@@ -33,7 +33,7 @@
     },
     {
       "city": "COPENHAGEN · DENMARK",
-      "value": 100
+      "value": 102
     },
     {
       "city": "KRAKÓW · POLAND",
@@ -47,7 +47,7 @@
   "age_groups": [
     {
       "band": "<13",
-      "count": 53
+      "count": 54
     },
     {
       "band": "13–17",
