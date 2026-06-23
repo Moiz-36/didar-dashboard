@@ -1,15 +1,15 @@
 {
-  "pages_read": "110,080",
+  "pages_read": "111,098",
   "participants": "369",
-  "screen_free_time": "3,669h",
+  "screen_free_time": "3,703h",
   "leaderboard": [
+    {
+      "city": "STOCKHOLM · SWEDEN",
+      "value": 692
+    },
     {
       "city": "ESSEN · GERMANY",
       "value": 682
-    },
-    {
-      "city": "STOCKHOLM · SWEDEN",
-      "value": 659
     },
     {
       "city": "AMSTERDAM · NETHERLANDS",
@@ -25,7 +25,7 @@
     },
     {
       "city": "BERLIN · GERMANY",
-      "value": 223
+      "value": 224
     },
     {
       "city": "MUNICH · GERMANY",
