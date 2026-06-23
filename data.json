@@ -1,19 +1,19 @@
 {
-  "pages_read": "111,798",
-  "participants": "371",
-  "screen_free_time": "3,727h",
+  "pages_read": "113,853",
+  "participants": "373",
+  "screen_free_time": "3,795h",
   "leaderboard": [
     {
       "city": "STOCKHOLM · SWEDEN",
-      "value": 704
+      "value": 705
+    },
+    {
+      "city": "AMSTERDAM · NETHERLANDS",
+      "value": 703
     },
     {
       "city": "ESSEN · GERMANY",
       "value": 687
-    },
-    {
-      "city": "AMSTERDAM · NETHERLANDS",
-      "value": 636
     },
     {
       "city": "HAMBURG · GERMANY",
@@ -51,7 +51,7 @@
     },
     {
       "band": "13–17",
-      "count": 27
+      "count": 29
     },
     {
       "band": "18–29",
@@ -59,7 +59,7 @@
     },
     {
       "band": "30–44",
-      "count": 109
+      "count": 110
     },
     {
       "band": "45–59",
