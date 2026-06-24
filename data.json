@@ -1,7 +1,7 @@
 {
-  "pages_read": "117,681",
-  "participants": "381",
-  "screen_free_time": "3,923h",
+  "pages_read": "117,724",
+  "participants": "382",
+  "screen_free_time": "3,924h",
   "leaderboard": [
     {
       "city": "AMSTERDAM · NETHERLANDS",
@@ -32,12 +32,12 @@
       "value": 157
     },
     {
-      "city": "COPENHAGEN · DENMARK",
+      "city": "KRAKÓW · POLAND",
       "value": 103
     },
     {
-      "city": "KRAKÓW · POLAND",
-      "value": 102
+      "city": "COPENHAGEN · DENMARK",
+      "value": 103
     },
     {
       "city": "WARSAW · POLAND",
@@ -63,7 +63,7 @@
     },
     {
       "band": "45–59",
-      "count": 32
+      "count": 33
     },
     {
       "band": "60+",
