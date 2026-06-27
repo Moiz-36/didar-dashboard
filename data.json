@@ -1,7 +1,7 @@
 {
-  "pages_read": "124,346",
-  "participants": "416",
-  "screen_free_time": "4,145h",
+  "pages_read": "124,410",
+  "participants": "418",
+  "screen_free_time": "4,147h",
   "leaderboard": [
     {
       "city": "AMSTERDAM · NETHERLANDS",
@@ -17,7 +17,7 @@
     },
     {
       "city": "HAMBURG · GERMANY",
-      "value": 445
+      "value": 447
     },
     {
       "city": "FRANKFURT · GERMANY",
@@ -47,11 +47,11 @@
   "age_groups": [
     {
       "band": "<13",
-      "count": 57
+      "count": 58
     },
     {
       "band": "13–17",
-      "count": 33
+      "count": 34
     },
     {
       "band": "18–29",
